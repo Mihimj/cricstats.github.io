@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cricket Bash</title>
+    <link rel="stylesheet" type="text/css" href="player.css">
+    <script type="text/javascript"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+
+
+
+	</head>
+<body>
+
+      <script>
+            function getParams(){
+                var idx = document.URL.indexOf('?');
+                var params = new Array();
+                if (idx != -1) {
+                    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+                    for (var i=0; i<pairs.length; i++){
+                        nameVal = pairs[i].split('=');
+                        params[nameVal[0]] = nameVal[1];
+                    }
+                }
+                return params;
+            }
+            params = getParams();
+            firstname = unescape(params["firstname"]);
+            console.log(firstname);
+
+
+
+ /*     
+var name="";
+var P;
+$("#btn").click(function(){
+      var name = $("#name").val();
+      */
+
+
+
+$.ajax({
+      url:"http://cricapi.com/api/playerFinder?name="+firstname+"&apikey=baKADTxmUZQpQ792UOoap9EbhZr1",
+      dataType: 'json',
+      type: 'get',
+      cache: false,
+      async : false,
+      success: function(dat){
+      $(dat.data).each(function(index,value){
+      P=value.pid;
+});
+}
+});
+
+        var HttpClient = function(){
+            this.get = function(aUrl,aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function(){
+                    if(anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+                anHttpRequest.open("GET" ,aUrl , true);
+                anHttpRequest.send( null );
+            }
+        }
+        
+        var theurl="http://cricapi.com/api/playerStats?pid="+P+"&apikey=baKADTxmUZQpQ792UOoap9EbhZr1";
+        var client= new HttpClient();
+        client.get(theurl , function(response){
+            var response1 = JSON.parse(response);
+            //alert(response);
+document.getElementById("pid").innerHTML = response1.pid;
+            document.getElementById("name").innerHTML = response1.name;
+            document.getElementById("profile").innerHTML = response1.profile;
+            document.getElementById("imageURL").src = response1.imageURL;
+            document.getElementById("battingStyle").innerHTML = response1.battingStyle;
+            document.getElementById("bowlingStyle").innerHTML = response1.bowlingStyle;
+            document.getElementById("majorTeams").innerHTML = response1.majorTeams;
+            document.getElementById("currentAge").innerHTML = response1.currentAge;
+            document.getElementById("born").innerHTML = response1.born;
+            document.getElementById("fullName").innerHTML = response1.fullName;
+            document.getElementById("country").innerHTML = response1.country;
+            var cn=response1.country;
+            document.getElementById("playingRole").innerHTML = response1.playingRole;
+            document.getElementById("v").innerHTML = response1.v;
+            document.getElementById("data10").innerHTML = response1.data["bowling"]["listA"]["10"];
+            document.getElementById("data5w").innerHTML = response1.data["bowling"]["listA"]["5w"];
+            document.getElementById("data4w").innerHTML = response1.data["bowling"]["listA"]["4w"];
+            document.getElementById("dataSR").innerHTML = response1.data["bowling"]["listA"]["SR"];
+            document.getElementById("dataEcon").innerHTML = response1.data["bowling"]["listA"]["Econ"];
+            document.getElementById("dataAve").innerHTML = response1.data["bowling"]["listA"]["Ave"];
+            document.getElementById("dataBBM").innerHTML = response1.data["bowling"]["listA"]["BBM"];
+            document.getElementById("dataBBI").innerHTML = response1.data["bowling"]["listA"]["BBI"];
+            document.getElementById("dataWkts").innerHTML = response1.data["bowling"]["listA"]["Wkts"];
+            document.getElementById("dataRuns").innerHTML = response1.data["bowling"]["listA"]["Runs"];
+            document.getElementById("dataBalls").innerHTML = response1.data["bowling"]["listA"]["Balls"];
+            document.getElementById("dataInns").innerHTML = response1.data["bowling"]["listA"]["Inns"];
+            document.getElementById("dataMat").innerHTML = response1.data["bowling"]["listA"]["Mat"];
+            document.getElementById("data101").innerHTML = response1.data["bowling"]["firstClass"]["10"];
+            document.getElementById("data5w1").innerHTML = response1.data["bowling"]["firstClass"]["5w"];
+            document.getElementById("data4w1").innerHTML = response1.data["bowling"]["firstClass"]["4w"];
+            document.getElementById("dataSR1").innerHTML = response1.data["bowling"]["firstClass"]["SR"];
+            document.getElementById("dataEcon1").innerHTML = response1.data["bowling"]["firstClass"]["Econ"];
+            document.getElementById("dataAve1").innerHTML = response1.data["bowling"]["firstClass"]["Ave"];
+            document.getElementById("dataBBM1").innerHTML = response1.data["bowling"]["firstClass"]["BBM"];
+            document.getElementById("dataBBI1").innerHTML = response1.data["bowling"]["firstClass"]["BBI"];
+            document.getElementById("dataWkts1").innerHTML = response1.data["bowling"]["firstClass"]["Wkts"];
+            document.getElementById("dataRuns1").innerHTML = response1.data["bowling"]["firstClass"]["Runs"];
+            document.getElementById("dataBalls1").innerHTML = response1.data["bowling"]["firstClass"]["Balls"];
+            document.getElementById("dataInns1").innerHTML = response1.data["bowling"]["firstClass"]["Inns"];
+            document.getElementById("dataMat1").innerHTML = response1.data["bowling"]["firstClass"]["Mat"];
+            document.getElementById("data102").innerHTML = response1.data["bowling"]["T20Is"]["10"];
+            document.getElementById("data5w2").innerHTML = response1.data["bowling"]["T20Is"]["5w"];
+            document.getElementById("data4w2").innerHTML = response1.data["bowling"]["T20Is"]["4w"];
+            document.getElementById("dataSR2").innerHTML = response1.data["bowling"]["T20Is"]["SR"];
+            document.getElementById("dataEcon2").innerHTML = response1.data["bowling"]["T20Is"]["Econ"];
+            document.getElementById("dataAve2").innerHTML = response1.data["bowling"]["T20Is"]["Ave"];
+            document.getElementById("dataBBM2").innerHTML = response1.data["bowling"]["T20Is"]["BBM"];
+            document.getElementById("dataBBI2").innerHTML = response1.data["bowling"]["T20Is"]["BBI"];
+            document.getElementById("dataWkts2").innerHTML = response1.data["bowling"]["T20Is"]["Wkts"];
+            document.getElementById("dataRuns2").innerHTML = response1.data["bowling"]["T20Is"]["Runs"];
+            document.getElementById("dataBalls2").innerHTML = response1.data["bowling"]["T20Is"]["Balls"];
+            document.getElementById("dataInns2").innerHTML = response1.data["bowling"]["T20Is"]["Inns"];
+            document.getElementById("dataMat2").innerHTML = response1.data["bowling"]["T20Is"]["Mat"];
+            document.getElementById("data103").innerHTML = response1.data["bowling"]["ODIs"]["10"];
+            document.getElementById("data5w3").innerHTML = response1.data["bowling"]["ODIs"]["5w"];
+            document.getElementById("data4w3").innerHTML = response1.data["bowling"]["ODIs"]["4w"];
+            document.getElementById("dataSR3").innerHTML = response1.data["bowling"]["ODIs"]["SR"];
+            document.getElementById("dataEcon3").innerHTML = response1.data["bowling"]["ODIs"]["Econ"];
+            document.getElementById("dataAve3").innerHTML = response1.data["bowling"]["ODIs"]["Ave"];
+            document.getElementById("dataBBM3").innerHTML = response1.data["bowling"]["ODIs"]["BBM"];
+            document.getElementById("dataBBI3").innerHTML = response1.data["bowling"]["ODIs"]["BBI"];
+            document.getElementById("dataWkts3").innerHTML = response1.data["bowling"]["ODIs"]["Wkts"];
+            document.getElementById("dataRuns3").innerHTML = response1.data["bowling"]["ODIs"]["Runs"];
+            document.getElementById("dataBalls3").innerHTML = response1.data["bowling"]["ODIs"]["Balls"];
+            document.getElementById("dataInns3").innerHTML = response1.data["bowling"]["ODIs"]["Inns"];
+            document.getElementById("dataMat3").innerHTML = response1.data["bowling"]["ODIs"]["Mat"];
+            document.getElementById("data104").innerHTML = response1.data["bowling"]["tests"]["10"];
+            document.getElementById("data5w4").innerHTML = response1.data["bowling"]["tests"]["5w"];
+            document.getElementById("data4w4").innerHTML = response1.data["bowling"]["tests"]["4w"];
+            document.getElementById("dataSR4").innerHTML = response1.data["bowling"]["tests"]["SR"];
+            document.getElementById("dataEcon4").innerHTML = response1.data["bowling"]["tests"]["Econ"];
+            document.getElementById("dataAve4").innerHTML = response1.data["bowling"]["tests"]["Ave"];
+            document.getElementById("dataBBM4").innerHTML = response1.data["bowling"]["tests"]["BBM"];
+            document.getElementById("dataBBI4").innerHTML = response1.data["bowling"]["tests"]["BBI"];
+            document.getElementById("dataWkts4").innerHTML = response1.data["bowling"]["tests"]["Wkts"];
+            document.getElementById("dataRuns4").innerHTML = response1.data["bowling"]["tests"]["Runs"];
+            document.getElementById("dataBalls4").innerHTML = response1.data["bowling"]["tests"]["Balls"];
+            document.getElementById("dataInns4").innerHTML = response1.data["bowling"]["tests"]["Inns"];
+            document.getElementById("dataMat4").innerHTML = response1.data["bowling"]["tests"]["Mat"];
+            document.getElementById("data505").innerHTML = response1.data["batting"]["listA"]["50"];        
+            document.getElementById("data1005").innerHTML = response1.data["batting"]["listA"]["100"];
+            document.getElementById("dataSt5").innerHTML = response1.data["batting"]["listA"]["St"];
+            document.getElementById("dataCt5").innerHTML = response1.data["batting"]["listA"]["Ct"];
+            document.getElementById("data6s5").innerHTML = response1.data["batting"]["listA"]["6s"];
+            document.getElementById("data4s5").innerHTML = response1.data["batting"]["listA"]["4s"];
+            document.getElementById("dataSR5").innerHTML = response1.data["batting"]["listA"]["SR"];
+            document.getElementById("dataBF5").innerHTML = response1.data["batting"]["listA"]["BF"];
+            document.getElementById("dataAve5").innerHTML = response1.data["batting"]["listA"]["Ave"];
+            document.getElementById("dataHS5").innerHTML = response1.data["batting"]["listA"]["HS"];
+            document.getElementById("dataRuns5").innerHTML = response1.data["batting"]["listA"]["Runs"];
+            document.getElementById("dataNO5").innerHTML = response1.data["batting"]["listA"]["NO"];
+            document.getElementById("dataInns5").innerHTML = response1.data["batting"]["listA"]["Inns"];
+            document.getElementById("dataMat5").innerHTML = response1.data["batting"]["listA"]["Mat"];
+            document.getElementById("data506").innerHTML = response1.data["batting"]["firstClass"]["50"];       
+            document.getElementById("data1006").innerHTML = response1.data["batting"]["firstClass"]["100"];
+            document.getElementById("dataSt6").innerHTML = response1.data["batting"]["firstClass"]["St"];
+            document.getElementById("dataCt6").innerHTML = response1.data["batting"]["firstClass"]["Ct"];
+            document.getElementById("data6s6").innerHTML = response1.data["batting"]["firstClass"]["6s"];
+            document.getElementById("data4s6").innerHTML = response1.data["batting"]["firstClass"]["4s"];
+            document.getElementById("dataSR6").innerHTML = response1.data["batting"]["firstClass"]["SR"];
+            document.getElementById("dataBF6").innerHTML = response1.data["batting"]["firstClass"]["BF"];
+            document.getElementById("dataAve6").innerHTML = response1.data["batting"]["firstClass"]["Ave"];
+            document.getElementById("dataHS6").innerHTML = response1.data["batting"]["firstClass"]["HS"];
+            document.getElementById("dataRuns6").innerHTML = response1.data["batting"]["firstClass"]["Runs"];
+            document.getElementById("dataNO6").innerHTML = response1.data["batting"]["firstClass"]["NO"];
+            document.getElementById("dataInns6").innerHTML = response1.data["batting"]["firstClass"]["Inns"];
+            document.getElementById("dataMat6").innerHTML = response1.data["batting"]["firstClass"]["Mat"];         
+            document.getElementById("data507").innerHTML = response1.data["batting"]["T20Is"]["50"];        
+            document.getElementById("data1007").innerHTML = response1.data["batting"]["T20Is"]["100"];
+            document.getElementById("dataSt7").innerHTML = response1.data["batting"]["T20Is"]["St"];
+            document.getElementById("dataCt7").innerHTML = response1.data["batting"]["T20Is"]["Ct"];
+            document.getElementById("data6s7").innerHTML = response1.data["batting"]["T20Is"]["6s"];
+            document.getElementById("data4s7").innerHTML = response1.data["batting"]["T20Is"]["4s"];
+            document.getElementById("dataSR7").innerHTML = response1.data["batting"]["T20Is"]["SR"];
+            document.getElementById("dataBF7").innerHTML = response1.data["batting"]["T20Is"]["BF"];
+            document.getElementById("dataAve7").innerHTML = response1.data["batting"]["T20Is"]["Ave"];
+            document.getElementById("dataHS7").innerHTML = response1.data["batting"]["T20Is"]["HS"];
+            document.getElementById("dataRuns7").innerHTML = response1.data["batting"]["T20Is"]["Runs"];
+            document.getElementById("dataNO7").innerHTML = response1.data["batting"]["T20Is"]["NO"];
+            document.getElementById("dataInns7").innerHTML = response1.data["batting"]["T20Is"]["Inns"];
+            document.getElementById("dataMat7").innerHTML = response1.data["batting"]["T20Is"]["Mat"];
+            document.getElementById("data508").innerHTML = response1.data["batting"]["ODIs"]["50"];     
+            document.getElementById("data1008").innerHTML = response1.data["batting"]["ODIs"]["100"];
+            document.getElementById("dataSt8").innerHTML = response1.data["batting"]["ODIs"]["St"];
+            document.getElementById("dataCt8").innerHTML = response1.data["batting"]["ODIs"]["Ct"];
+            document.getElementById("data6s8").innerHTML = response1.data["batting"]["ODIs"]["6s"];
+            document.getElementById("data4s8").innerHTML = response1.data["batting"]["ODIs"]["4s"];
+            document.getElementById("dataSR8").innerHTML = response1.data["batting"]["ODIs"]["SR"];
+            document.getElementById("dataBF8").innerHTML = response1.data["batting"]["ODIs"]["BF"];
+            document.getElementById("dataAve8").innerHTML = response1.data["batting"]["ODIs"]["Ave"];
+            document.getElementById("dataHS8").innerHTML = response1.data["batting"]["ODIs"]["HS"];
+            document.getElementById("dataRuns8").innerHTML = response1.data["batting"]["ODIs"]["Runs"];
+            document.getElementById("dataNO8").innerHTML = response1.data["batting"]["ODIs"]["NO"];
+            document.getElementById("dataInns8").innerHTML = response1.data["batting"]["ODIs"]["Inns"];
+            document.getElementById("dataMat8").innerHTML = response1.data["batting"]["ODIs"]["Mat"];
+            document.getElementById("data509").innerHTML = response1.data["batting"]["tests"]["50"];        
+            document.getElementById("data1009").innerHTML = response1.data["batting"]["tests"]["100"];
+            document.getElementById("dataSt9").innerHTML = response1.data["batting"]["tests"]["St"];
+            document.getElementById("dataCt9").innerHTML = response1.data["batting"]["tests"]["Ct"];
+            document.getElementById("data6s9").innerHTML = response1.data["batting"]["tests"]["6s"];
+            document.getElementById("data4s9").innerHTML = response1.data["batting"]["tests"]["4s"];
+            document.getElementById("dataSR9").innerHTML = response1.data["batting"]["tests"]["SR"];
+            document.getElementById("dataBF9").innerHTML = response1.data["batting"]["tests"]["BF"];
+            document.getElementById("dataAve9").innerHTML = response1.data["batting"]["tests"]["Ave"];
+            document.getElementById("dataHS9").innerHTML = response1.data["batting"]["tests"]["HS"];
+            document.getElementById("dataRuns9").innerHTML = response1.data["batting"]["tests"]["Runs"];
+            document.getElementById("dataNO9").innerHTML = response1.data["batting"]["tests"]["NO"];
+            document.getElementById("dataInns9").innerHTML = response1.data["batting"]["tests"]["Inns"];
+            document.getElementById("dataMat9").innerHTML = response1.data["batting"]["tests"]["Mat"];
+  });
+
+    </script>
+
+
+
+
+<div class="main"><center>
+<div class="row">
+   <div style="background: url(//cdx.cricapi.com/images/banner.jpg); border-radius: 10px; min-height: 450px; margin-bottom: 50px;" class="col-md-offset-3 col-md-6 col-sm-12 col-xs-12 playercard" itemscope="" itemtype="http://schema.org/Person">
+            <center>
+                <div id="playerface">
+				
+                <img id="imageURL" src='"http://cricapi.com/playerpic/+"pid"+".jpg"' alt="player"  itemprop="image">
+                </div>
+                    <h2 itemprop="name">
+                        <div id="team">
+                        <img id="cntry "src="http://cdx.cricapi.com/country/Flag%20Of%20England.png" alt="India" title="India" height="48" style="margin-right:5px;">
+                        </div>
+                        <h1 id="name"></h1></h2>
+                </center>
+            <div id="playerbasic">
+            <table class="table table-striped">
+                
+                <tbody><tr>
+                    <th>Plays for</th>
+                    <td colspan="2"><p id="country"></p></td>
+                </tr>
+                
+                <tr>
+                    <th>Age</th>
+                    <td colspan="2"><p id="currentAge"></p>
+                    
+                </td></tr>
+                
+                <tr>
+                    <th>Born</th>
+                    <td colspan="2"><p id="born"></p></td>
+                </tr>
+                
+                <tr>
+                    <th>Batting Style</th>
+                    <td colspan="2"><p id="battingStyle"></p></td>
+                </tr>
+                
+                <tr>
+                    <th>Bowling Style</th>
+                    <td colspan="2"><p id="bowlingStyle"></p></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2">
+                        <p id="profile"></p>
+
+                    </td>
+                </tr>
+                
+            </tbody></table>
+            </div>
+            
+            <div id="teams">
+            <table class="table table-striped">
+                <tbody><tr>
+                    <th colspan="3">Major Teams Affiliated With</th>
+                </tr>
+                <tr>
+                    <td><p id="majorTeams"></p></td>
+                </tr>
+            </tbody></table>
+            </div>
+            
+            <h2>Batting Performance</h2>
+            <div id="playerbats">
+            <table class="table table-striped">
+                <tbody><tr>
+                      <th>League</th>
+   <th>Mat</th>
+                    <th>Inns</th>
+                    
+                 
+                  
+                    
+                    <th>50</th>
+                    
+                    <th>100</th>
+                    
+                    <th>St</th>
+                    
+                    <th>Ct</th>
+                    
+                    <th>6s</th>
+                    
+                    <th>4s</th>
+                    
+                    <th>SR</th>
+
+                    <th>BF</th>
+
+                    <th>Ave</th>
+                    
+                    <th>HS</th>
+                    
+                    <th>Runs</th>
+                    
+                    <th>NO</th>
+                    
+                    
+                    
+                </tr>
+                
+                <tr>
+                    <th>listA</th>
+
+<td><p id="dataMat5"></p></td>
+                        <td><p id="dataInns5"></p></td>
+
+                    
+                    
+                    <td><p id="data505"></p></td>
+                    
+                    <td><p id="data1005"></p></td>
+                    
+                    <td><p id="dataSt5"></p></td>
+                    
+                    <td><p id="dataCt5"></p></td>
+                    
+                    <td><p id="data6s5"></p></td>
+                    
+                    <td><p id="data4s5"></p></td>
+                    
+                    <td><p id="dataSR5"></p></td>
+                    
+                    <td><p id="dataBF5"></p></td>
+                    
+                    <td><p id="dataAve5"></p></td>
+                    
+                    <td><p id="dataHS5"></p></td>
+                    
+                    <td><p id="dataRuns5"></p></td>
+                    
+                    <td><p id="dataNO5"></p></td>
+                    
+                
+                    
+                </tr>
+                
+                <tr>
+                    <th>firstClass</th>
+                               <td><p id="dataMat6"></p></td>
+                    <td><p id="dataInns6"></p></td>
+
+                   
+                    
+                    <td><p id="data506"></p></td>
+                    
+                    <td><p id="data1006"></p></td>
+                    
+                    <td><p id="dataSt6"></p></td>
+                    
+                    <td><p id="dataCt6"></p></td>
+                    
+                    <td><p id="data6s6"></p></td>
+                    
+                    <td><p id="data4s6"></p></td>
+                    
+                    <td><p id="dataSR6"></p></td>
+                    
+                    <td><p id="dataBF6"></p></td>
+                    
+                    <td><p id="dataAve6"></p></td>
+                    
+                    <td><p id="dataHS6"></p></td>
+                    
+                    <td><p id="dataRuns6"></p></td>
+                    
+                    <td><p id="dataNO6"></p></td>
+          
+                    
+                </tr>
+                
+                <tr>
+                    <th>T20Is</th>
+<td><p id="dataMat7"></p></td>
+                    <td><p id="dataInns7"></p></td>
+
+                    
+                    
+                    <td><p id="data507"></p></td>
+                    
+                    <td><p id="data1007"></p></td>
+                    
+                    <td><p id="dataSt7"></p></td>
+                    
+                    <td><p id="dataCt7"></p></td>
+                    
+                    <td><p id="data6s7"></p></td>
+                    
+                    <td><p id="data4s7"></p></td>
+                    
+                    <td><p id="dataSR7"></p></td>
+                    
+                    <td><p id="dataBF7"></p></td>
+                    
+                    <td><p id="dataAve7"></p></td>
+                    
+                    <td><p id="dataHS7"></p></td>
+                    
+                    <td><p id="dataRuns7"></p></td>
+                    
+                    <td><p id="dataNO7"></p></td>
+                    
+                    
+                    
+                </tr>
+                
+                <tr>
+                    <th>ODIs</th>
+
+ <td><p id="dataMat8"></p></td>
+                     <td><p id="dataInns8"></p></td>
+
+                   
+
+                    <td><p id="data508"></p></td>
+                    
+                    <td><p id="data1008"></p></td>
+                    
+                    <td><p id="dataSt8"></p></td>
+                    
+                    <td><p id="dataCt8"></p></td>
+                    
+                    <td><p id="data6s8"></p></td>
+                    
+                    <td><p id="data4s8"></p></td>
+                    
+                    <td><p id="dataSR8"></p></td>
+                    
+                    <td><p id="dataBF8"></p></td>
+                    
+                    <td><p id="dataAve8"></p></td>
+                    
+                    <td><p id="dataHS8"></p></td>
+                    
+                    <td><p id="dataRuns8"></p></td>
+                    
+                    <td><p id="dataNO8"></p></td>
+                    
+                   
+                    
+                </tr>
+                
+                <tr>
+                    <th>tests</th>
+                    
+ <td><p id="dataMat9"></p></td>
+
+                    <td><p id="dataInns9"></p></td>
+
+                   
+                    <td><p id="data509"></p></td>
+                    
+                    <td><p id="data1009"></p></td>
+                    
+                    <td><p id="dataSt9"></p></td>
+                    
+                    <td><p id="dataCt9"></p></td>
+                    
+                    <td><p id="data6s9"></p></td>
+                    
+                    <td><p id="data4s9"></p></td>
+                    
+                    <td><p id="dataSR9"></p></td>
+                    
+                    <td><p id="dataBF9"></p></td>
+                    
+                    <td><p id="dataAve9"></p></td>
+                    
+                    <td><p id="dataHS9"></p></td>
+                    
+                    <td><p id="dataRuns9"></p></td>
+                    
+                    <td><p id="dataNO9"></p></td>
+                    
+                    
+                    
+                </tr>
+                
+            </tbody></table>
+            </div>
+            <div id="playerbowls">
+            <h2>Bowling Performance</h2>
+            <table class="table table-striped">
+                <tbody><tr>
+                    <th>League</th>
+       <th>Mat</th>
+                    <th>Inns</th>
+                    
+             
+                    
+                    <th>10</th>
+                    
+                    <th>5w</th>
+                    
+                    <th>4w</th>
+                    
+                    <th>SR</th>
+
+                    <th>Econ</th>
+                    
+                    <th>Ave</th>
+                    
+                    <th>BBM</th>
+                    
+                    <th>BBI</th>
+                    
+                    <th>Wkts</th>
+                    
+                    <th>Runs</th>
+                    
+                    <th>Balls</th>
+                    
+                    
+                    
+                </tr>
+                
+                <tr>
+                    <th>listA</th>
+                     <td><p id="dataMat"></p></td>
+                     <td><p id="dataInns"></p></td>
+                    
+                   
+                    
+                    <td><p id="data10"></p></td>
+                    
+                    <td><p id="data5w"></p></td>
+                    
+                    <td><p id="data4w"></p></td>
+                    
+                    <td><p id="dataSR"></p></td>
+                    
+                    <td><p id="dataEcon"></p></td>
+                    
+                    <td><p id="dataAve"></p></td>
+                    
+                    <td><p id="dataBBM"></p></td>
+                    
+                    <td><p id="dataBBI"></p></td>
+                    
+                    <td><p id="dataWkts"></p></td>
+                    
+                    <td><p id="dataRuns"></p></td>
+                    
+                    <td><p id="dataBalls"></p></td>
+                    
+                   
+                    
+                </tr>
+                
+                <tr>
+                    <th>firstClass</th>
+<td><p id="dataMat1"></p></td>
+                    <td><p id="dataInns1"></p></td>
+                    
+                    
+                    
+                    <td><p id="data101"></p></td>
+                    
+                    <td><p id="data5w1"></p></td>
+                    
+                    <td><p id="data4w1"></p></td>
+                    
+                    <td><p id="dataSR1"></p></td>
+                    
+                    <td><p id="dataEcon1"></p></td>
+                    
+                    <td><p id="dataAve1"></p></td>
+                    
+                    <td><p id="dataBBM1"></p></td>
+                    
+                    <td><p id="dataBBI1"></p></td>
+                    
+                    <td><p id="dataWkts1"></p></td>
+                    
+                    <td><p id="dataRuns1"></p></td>
+                    
+                    <td><p id="dataBalls1"></p></td>
+                    
+                    
+                    
+                </tr>
+                
+                <tr>
+                    <th>T20Is</th>
+                    
+ <td><p id="dataMat2"></p></td>
+                    <td><p id="dataInns2"></p></td>
+                    
+                   
+                    <td><p id="data102"></p></td>
+                    
+                    <td><p id="data5w2"></p></td>
+                    
+                    <td><p id="data4w2"></p></td>
+                    
+                    <td><p id="dataSR2"></p></td>
+                    
+                    <td><p id="dataEcon2"></p></td>
+                    
+                    <td><p id="dataAve2"></p></td>
+                    
+                    <td><p id="dataBBM2"></p></td>
+                    
+                    <td><p id="dataBBI2"></p></td>
+                    
+                    <td><p id="dataWkts2"></p></td>
+                    
+                    <td><p id="dataRuns2"></p></td>
+                    
+                    <td><p id="dataBalls2"></p></td>
+                    
+                    
+                    
+                </tr>
+                
+                <tr>
+                    <th>ODIs</th>
+<td><p id="dataMat3"></p></td>
+                    <td><p id="dataInns3"></p></td>
+                    
+                    
+                    
+                    <td><p id="data103"></p></td>
+                    
+                    <td><p id="data5w3"></p></td>
+                    
+                    <td><p id="data4w3"></p></td>
+                    
+                    <td><p id="dataSR3"></p></td>
+                    
+                    <td><p id="dataEcon3"></p></td>
+                    
+                    <td><p id="dataAve3"></p></td>
+                    
+                    <td><p id="dataBBM3"></p></td>
+                    
+                    <td><p id="dataBBI3"></p></td>
+                    
+                    <td><p id="dataWkts3"></p></td>
+                    
+                    <td><p id="dataRuns3"></p></td>
+                    
+                    <td><p id="dataBalls3"></p></td>
+                    
+                    
+                    
+                </tr>
+                
+                <tr>
+                    <th>tests</th>
+                     <td><p id="dataMat4"></p></td>
+                     <td><p id="dataInns4"></p></td>
+                    
+                   
+                    
+                    <td><p id="data104"></p></td>
+                    
+                    <td><p id="data5w4"></p></td>
+                    
+                    <td><p id="data4w4"></p></td>
+                    
+                    <td><p id="dataSR4"></p></td>
+                    
+                    <td><p id="dataEcon4"></p></td>
+                    
+                    <td><p id="dataAve4"></p></td>
+                    
+                    <td><p id="dataBBM4"></p></td>
+                    
+                    <td><p id="dataBBI4"></p></td>
+                    
+                    <td><p id="dataWkts4"></p></td>
+                    
+                    <td><p id="dataRuns4"></p></td>
+                    
+                    <td><p id="dataBalls4"></p></td>
+                    
+                   
+                </tr>
+                
+            </tbody></table>s
+            </div>
+            
+        </div>
+    </div>
+</div>
+</center>
+</div>
+    <p id="pid"></p>
+    <p id="name"></p>
+    <p id="profile"></p>
+    <p id="imageURL"></p>
+    <p id="battingStyle"></p>
+    <p id="bowlingStyle"></p>
+    <p id="majorTeams"></p>
+    <p id="currentAge"></p>
+    <p id="born"></p>
+    <p id="fullName"></p>
+    <p id="country"></p>
+    <p id="playingRole"></p>
+    <p id="v"></p>
+</body>
+</html>

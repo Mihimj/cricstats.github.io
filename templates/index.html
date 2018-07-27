@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title href="index.html">CRICKET BUZZ</title>
+	<link rel="icon" href="C:\Users\MIHIR KUMAR JHA\Desktop\internship\static\t1.jpg">
+	<link rel="stylesheet" type="text/css" href="..\static\main.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1300, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+	<div id="line">  
+  
+		    		<ul>
+           
+      			<li class="active"><a href="index.html">Home</a></li>
+      			<li><a href="#team">Teams</a></li>
+      			<li><a href="events.html">Events</a></li>
+      			<li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+    		<li class="ff">
+    	<form class="navbar-form navbar-left" method="get" action="data.html" id="frm1">
+     		 
+         <div class="form-group">
+         
+        		<input id="result" type="text" class="form-control" placeholder="Search" name=firstname>
+      
+        </div>
+           <button onclick="startConverting()" type="submit" class="btn btn-default"><i class="fa fa-microphone"> </i></button>
+
+         <button type="submit" class="btn btn-default" onclick="myFunction()"> Submit</i></button>
+      </form>  </li> </ul>
+</div>
+   
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+  
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+     
+    </ol>
+
+  
+    <div class="carousel-inner">
+      <div class="item active">
+      
+        <img src="..\static\c2.jpg" alt="" style="width:100%;height:500px;">
+       <div class="carousel-caption">
+        <h2 class="c k" style="font-size: 30px;">A gun is no more dangerous than a cricket bat in the hands of a madman.!!!!</h2>
+             </div>
+      </div>
+
+      <div class="item">
+        <img src="..\static\c1.jpg" alt="" style="width:100%;height:500px;">
+      </div>
+    
+      <div class="item">
+        <img src="..\static\c3.jpg" alt="" style="width:100%;height:500px;">
+      </div>
+      <div class="item">
+        <img src="..\static\c4.jpg" alt="team" style="width:100%;height:500px;">
+      </div>
+    </div>
+</div>
+</div>
+</div>
+<!---------------------------->
+<div id="team">
+<div class="container-fluid text-center bg-black" <br="">
+        <br>
+
+
+          <h2 style="font-size: 50px;">Teams</h2>
+
+          <br>
+          <div class="row text-center">
+            <div class="col-sm-4">
+              <div class="thumbnail xyz">
+                  <img id="loading"src="..\static\teams\team.jpg" alt="single">
+                  <h3 >India</h3>
+                  <h5>Current ODI Ranking:2</h5><br>
+                  <h5 >Current TEST Ranking:1 </h5><br>
+                   <h5 >Current T-20 Ranking:2 </h5><br>
+                 <h5>Achievements:WC 1983,WC 2011,T20WC 2007 </h5><br>
+
+               
+                  <button type="button" class="btn btn-info" style="background-color: rgb(136, 24, 27)"><a href="..\static\teams\team\india.html" style="text-decoration:none;color:white ">Know More</a></button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team5.jpg" alt="teams">
+                 <h3 >Australia</h3>
+                  <h5>Current ODI Ranking:6</h5><br>
+                  <h5 >Current TEST Ranking:3 </h5><br>
+                   <h5 >Current T-20 Ranking:3 </h5><br>
+                 <h5 >Achievements:WC 1887,1999,2003,2007,2015 </h5><br>
+                <button type="button" class="btn btn-info" style="background-color: rgb(136, 24, 27)"><a href="..\static\teams\team\aus.html" style="text-decoration:none; color:white;">Know More</a></button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team3.jpg" alt="img">
+                
+                 <h3 >New Zealand</h3>
+                  <h5>Current ODI Ranking:4</h5><br>
+                  <h5 >Current TEST Ranking:4 </h5><br>
+                   <h5 >Current T-20 Ranking:5 </h5><br>
+                 <h5 >Achievements:Champions Trophy 2000</h5><br>
+                <button type="button" class="btn btn-info" style="background-color: rgb(136, 24, 27)"><a href="..\static\teams\team\newz.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+            </div>
+       
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team4.jpg" alt="img">
+                <h3 >Pakistan</h3>
+                  <h5>Current ODI Ranking:5</h5><br>
+                  <h5 >Current TEST Ranking:7 </h5><br>
+                   <h5 >Current T-20 Ranking:1 </h5><br>
+                 <h5 >Achievements:WC 1992,T20 WC 2009</h5><br>
+             
+                <button type="button" class="btn btn-info" style="background-color:  rgb(39, 106, 30)"><a href="..\static\teams\team\paki.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team2.jpg" alt="img">
+                 <h3 >Srilanka</h3>
+                  <h5>Current ODI Ranking:8</h5><br>
+                  <h5 >Current TEST Ranking:6 </h5><br>
+                   <h5 >Current T-20 Ranking:9 </h5><br>
+                 <h5 >Achievements:WC 1996,T20WC 2014</h5><br>
+             
+                <button type="button" class="btn btn-info" style="background-color:  rgb(39, 106, 30)"><a href="..\static\teams\team\sril.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team6.jpg" alt="img">
+                 <h3 >Bangladesh</h3>
+                  <h5>Current ODI Ranking:7</h5><br>
+                  <h5 >Current TEST Ranking:9 </h5><br>
+                   <h5 >Current T-20 Ranking:10 </h5><br>
+                 <h5 >Achievements:WC Qualifier winner 2016</h5><br>
+
+                <button type="button" class="btn btn-info" style="background-color:  rgb(39, 106, 30)"><a href="..\static\teams\team\bang.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team7.jpg"  alt="img">
+                <h3 >South Africa</h3>
+                  <h5>Current ODI Ranking:3</h5><br>
+                  <h5 >Current TEST Ranking:2 </h5><br>
+                   <h5 >Current T-20 Ranking:6 </h5><br>
+                 <h5 >Achievements:Constant Semi-finalist</h5><br>
+               
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="..\static\teams\team\south.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img  id="loading" src="..\static\teams\team8.jpg" alt="img">
+                <h3 >England</h3>
+                  <h5>Current ODI Ranking:1</h5><br>
+                  <h5 >Current TEST Ranking:5 </h5><br>
+                   <h5 >Current T-20 Ranking:4 </h5><br>
+                 <h5 >Achievements:WCT20 2010</h5><br>
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="..\static\teams\team\eng.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+            </div>
+            
+            <div class="col-sm-4">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\teams\team9.jpg" alt="img" style="height: 264px;">
+              
+                 <h3 >West Indies</h3>
+                  <h5>Current ODI Ranking:9</h5><br>
+                  <h5 >Current TEST Ranking:8 </h5><br>
+                   <h5 >Current T-20 Ranking:7 </h5><br>
+                 <h5 >Achievements:WC 1975,1979</h5><br>
+        
+              
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="..\static\teams\team\west.html" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+  
+</div>
+<br>
+
+
+
+
+
+<div id="contact">
+
+         <div class="container">
+<h2>Contact Us:</h2>
+<a href="#">
+ <span class="glyphicon glyphicon-envelope" style="font-size:25px"></span></a>
+
+ <a href="#"><P>FOOTBALLBASH@GMAIL.COM</P>
+          <span class="glyphicon glyphicon-print" style="font-size:25px"></span>
+        </a>
+  <a href="#"><P> 9839493423</P>
+          <span class="glyphicon glyphicon-phone-alt" style="font-size:25px"></span>
+        </a>
+        <a href="#"><P> +91 8553203070</P>
+        <i class="fa fa-facebook-square" style="font-size:25px">
+        </i></a>
+        <a href="#"><p> WWW.FACEBOOK.COM/FOOTBALL-BASH/</p>
+        <i class="fa fa-linkedin-square" style="font-size:25px"></i></a>
+        <a href="">
+        <P>FOOTBALL-BASH-02183H</P></a>
+
+</div>
+</div>
+<script type="text/javascript">
+
+      var r = document.getElementById('result');
+
+      function startConverting () {
+        if('webkitSpeechRecognition' in window){
+          var speechRecognizer = new webkitSpeechRecognition();
+          speechRecognizer.continuous = true;
+          speechRecognizer.interimResults = true;
+          speechRecognizer.lang = 'en-IN';
+          speechRecognizer.start();
+
+          var finalTranscripts = '';
+
+          speechRecognizer.onresult = function(event){
+            var interimTranscripts = '';
+            for(var i = event.resultIndex; i < event.results.length; i++){
+              var transcript = event.results[i][0].transcript;
+              transcript.replace("\n", "<br>");
+              if(event.results[i].isFinal){
+                finalTranscripts += transcript;
+              }else{
+                interimTranscripts += transcript;
+              }
+            }
+            var Speechr = finalTranscripts + interimTranscripts ;
+            r.setAttribute('value',Speechr);
+          };
+          speechRecognizer.onerror = function (event) {
+          };
+        }else{
+          r.innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
+        }
+      }
+
+      
+      var url = "";
+function myFunction() {
+    var x = document.getElementById("frm1");
+    var station_name = "";
+  
+    station_name= x.elements[0].value;
+     
+   
+  url="https://http://cricapi.com/api/playerFinder?apikey=n7zLr53gcWV2quLL5IjKs4yAuRX2&name="+station_name;
+  
+}
+$(document).ready(function(){
+    $("button").click(function(){
+        $.getJSON(url, function(result) {
+            $("h3").append("Station Code :"+result.stations[0].code + "</br> "+"Longitude :"+result.stations[0].lng+"</br>"+"Latitude :"+result.stations[0].lat+"</br> ");
+      console.log(result);
+        });
+    });
+});
+
+
+
+
+
+
+    </script>
+    <h3>
+    </h3>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-------
+<h1>Developers</h1>
+<br>
+<br>
+<br>
+
+
+        <div class="col-sm-3">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\m1.jpg" alt="img">
+                <h3 style="color:#fff ;">Mihir Kumar Jha</h3>
+                <p>usn 1RN15IS048</p>
+               
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+  
+</div>
+      <div class="col-sm-3">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\m1.jpg" alt="img">
+                <h3 style="color:#fff ;">Mihir Kumar Jha</h3>
+                <p>usn 1RN15IS048</p>
+               
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+  
+</div>
+
+
+      <div class="col-sm-3">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\m1.jpg" alt="img">
+                <h3 style="color:#fff ;">Mihir Kumar Jha</h3>
+                <p>usn 1RN15IS048</p>
+               
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+  
+</div>
+
+      <div class="col-sm-3">
+              <div class="thumbnail">
+
+                <img id="loading" src="..\static\m1.jpg" alt="img">
+                <h3 style="color:#fff ;">Mihir Kumar Jha</h3>
+                <p>usn 1RN15IS048</p>
+               
+                <button type="button" class="btn btn-info" style="background-color:  rgb(21, 39, 68)"><a href="" style="text-decoration:none;
+                  color:white;">Know More</a></button>
+              </div>
+  
+</div>
+---->
